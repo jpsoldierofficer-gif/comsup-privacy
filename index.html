@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>COMSUP プライバシーポリシー</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+            background: #0f172a;
+            color: #e5e7eb;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 24px 16px 40px;
+        }
+        h1, h2, h3 {
+            color: #f9fafb;
+        }
+        h1 {
+            font-size: 1.6rem;
+            margin-bottom: 0.5rem;
+        }
+        h2 {
+            font-size: 1.2rem;
+            border-left: 4px solid #38bdf8;
+            padding-left: 8px;
+            margin-top: 2rem;
+        }
+        h3 {
+            font-size: 1rem;
+            margin-top: 1.2rem;
+        }
+        p {
+            margin: 0.4rem 0;
+        }
+        ul {
+            margin: 0.2rem 0 0.8rem 1.2rem;
+        }
+        .meta {
+            font-size: 0.85rem;
+            color: #9ca3af;
+            margin-bottom: 1.5rem;
+        }
+        a {
+            color: #38bdf8;
+        }
+        .card {
+            background: rgba(15, 23, 42, 0.9);
+            border-radius: 12px;
+            padding: 20px 16px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+            border: 1px solid rgba(148, 163, 184, 0.3);
+        }
+        @media (min-width: 640px) {
+            .card {
+                padding: 28px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="card">
+        <h1>COMSUP プライバシーポリシー</h1>
+        <p class="meta">最終更新日: 2025年12月</p>
+
+        <p>
+            COMSUP（以下「本アプリ」）は、ユーザーが地図上で位置情報やプロットを共有することを目的としたアプリです。<br>
+            本アプリでは、ユーザーのプライバシーを尊重し、以下の方針に基づいて情報を取り扱います。
+        </p>
+
+        <h2>1. 収集する情報</h2>
+
+        <h3>1.1 位置情報（GPS）</h3>
+        <p>本アプリは以下の目的で、端末の位置情報（緯度・経度・精度）を取得します。</p>
+        <ul>
+            <li>現在地の表示</li>
+            <li>A/B 2点校正（地図上の位置補正）</li>
+            <li>自動追尾機能の提供（オプション）</li>
+        </ul>
+        <p>
+            位置情報は、ユーザーが端末の位置情報権限を許可した場合にのみ取得されます。<br>
+            また、現在地マーカーはローカル表示に利用され、<strong>ルーム内の同期データとしてサーバーに送信されることはありません。</strong>
+        </p>
+
+        <h3>1.2 画像データ（地図画像）</h3>
+        <p>
+            ユーザーが選択した地図画像は、ルーム共有のために Firebase Storage に保存されます。<br>
+            保存時には、AES-GCM による暗号化（IV + 暗号データ）を行い、安全に保存します。
+        </p>
+        <p>
+            暗号鍵は、ルームIDと固定ソルトから生成され、本アプリ内でのみ使用されます。
+        </p>
+
+        <h3>1.3 プロット（マーカー）情報</h3>
+        <p>地図上にユーザーが追加したプロット（マーカー）の情報は、ルーム内共有のために Firebase Realtime Database に保存されます。</p>
+        <p>保存される主な情報は以下のとおりです。</p>
+        <ul>
+            <li>プロットの位置（正規化された座標）</li>
+            <li>色・形状・サイズ</li>
+            <li>メモとして入力されたテキスト</li>
+            <li>任意で添付された画像（写真）</li>
+        </ul>
+
+        <h2>2. 使用する外部サービス</h2>
+        <p>本アプリは、以下の外部サービスを利用します。</p>
+        <ul>
+            <li>Google Firebase Realtime Database</li>
+            <li>Google Firebase Storage</li>
+        </ul>
+        <p>
+            これらのサービスにより、地図データやプロット情報が保存・同期されます。<br>
+            Firebase が自動的に取得する可能性のある情報（IP アドレス、デバイス情報等）については、
+            Firebase のプライバシーポリシーに従います。
+        </p>
+        <p>
+            Firebase プライバシーポリシー:<br>
+            <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">
+                https://firebase.google.com/support/privacy
+            </a>
+        </p>
+
+        <h2>3. 個人を特定できる情報について</h2>
+        <p>本アプリは、以下の個人情報を収集しません。</p>
+        <ul>
+            <li>氏名</li>
+            <li>メールアドレス</li>
+            <li>電話番号</li>
+            <li>住所</li>
+            <li>アカウントID 等</li>
+        </ul>
+        <p>
+            端末識別に使用される情報（例：Android ID）は、ルームマスター機能の判定など、
+            本アプリ内の機能提供に限って利用され、第三者へ提供されることはありません。
+        </p>
+
+        <h2>4. データの利用目的</h2>
+        <p>収集した情報は、以下の目的でのみ利用します。</p>
+        <ul>
+            <li>地図情報およびプロット情報の共有・表示</li>
+            <li>位置補正および自動追尾機能の提供</li>
+            <li>アプリの品質向上のための匿名データ分析</li>
+        </ul>
+        <p>これらの目的以外で情報を利用することはありません。</p>
+
+        <h2>5. 第三者提供について</h2>
+        <p>ユーザーの情報を、次の場合を除き第三者に提供することはありません。</p>
+        <ul>
+            <li>法令に基づく開示要請があった場合</li>
+            <li>犯罪捜査等の協力要請が法的に有効な形で行われた場合</li>
+        </ul>
+
+        <h2>6. データの保存期間</h2>
+        <ul>
+            <li>Firebase に保存されたルームデータ（地図・プロット等）は、ルームが存在する限り保存されます。</li>
+            <li>利用されなくなったルームは、Firebase の仕様や運用方針により一定期間後に削除される場合があります。</li>
+            <li>端末内に保存されているデータ（ローカル地図、設定など）は、ユーザーがアプリをアンインストールした時点で削除されます。</li>
+        </ul>
+
+        <h2>7. ユーザーの権利</h2>
+        <p>ユーザーは、以下を依頼することができます。</p>
+        <ul>
+            <li>保存されているデータの削除</li>
+            <li>今後の利用停止の要請</li>
+        </ul>
+        <p>これらの依頼は、下記お問い合わせ先にご連絡ください。</p>
+
+        <h2>8. セキュリティ対策</h2>
+        <p>本アプリでは、以下のようなセキュリティ対策を講じています。</p>
+        <ul>
+            <li>地図画像の AES-GCM 暗号化保存</li>
+            <li>Firebase Realtime Database / Storage のセキュリティルール設定</li>
+            <li>必要最小限の権限のみを要求（位置情報、ストレージアクセス等）</li>
+            <li>アプリ内での誤操作防止（削除時の確認等）</li>
+        </ul>
+
+        <h2>9. プライバシーポリシーの変更</h2>
+        <p>
+            本ポリシーの内容は、必要に応じて変更される場合があります。<br>
+            重要な変更がある場合は、アプリ内での告知またはストアの説明欄等でお知らせします。
+        </p>
+
+        <h2>10. お問い合わせ先</h2>
+        <p>本アプリのプライバシーに関するお問い合わせは、以下までご連絡ください。</p>
+        <p>
+            メールアドレス：<strong>your-mail@example.com</strong><br>
+            （ご自身の連絡用メールアドレスに置き換えてください）
+        </p>
+    </div>
+</div>
+</body>
+</html>
